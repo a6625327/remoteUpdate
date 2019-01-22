@@ -9,7 +9,7 @@
 |�usr/share/apport/apport %p �s %c %d %P
 sudo /sbin/sysctl -w kernel.core_pattern=%e.core.%p
 <bo�y>
-dasjdaskjl
+dasjdaskjlAS
     <div ontodsauchmove="�vent.preventDefault()� class="forbidScrool">
         <div id="modelview"></div>
 
