@@ -57,3 +57,4 @@ log
 libs/iniparser/libiniparser*
 conf
 src/ttt.c
+src/ddd.c
