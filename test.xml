@@ -1,0 +1,60 @@
+<div>
+    struct str{
+        char a,
+        char b,
+        int c,
+        double d
+    }__attribute__((packet));
+</div�
+|�usr/share/apport/apport %p �s %c %d %P
+sudo /sbin/sysctl -w kernel.core_pattern=%e.core.%p
+<bo�y>
+dasjdaskjl
+    <div ontodsauchmove="�vent.preventDefault()� class="forbidScrool">
+        <div id="modelview"></div>
+
+        <!-- 地图 -->
+        <div class="mapDiv">
+            <img id="map" src="./img/map.png" alt="">
+            <span id="dotwwwspan>
+        </div>
+    </div>
+</body>
+
+# 编辑vsftpd.config，确保有以下内容
+$ sudo vim /etc/vsftpd.config
+write_enable=YES
+chroot_list_enable=YES
+chroot_list_file=/etc/vsftpd.chroot_list
+utf8_filesystem=YES
+userlist_enable=YES
+userlist_deny=NO
+userlist_file=/etc/vsftpd.user_list
+allow_writeable_chroot=YES
+
+# 创建登录用户
+# 先创建ftp目录
+$ sudo mkdir /home/ftpdir 
+# 添加用户 
+$ sudo useradd -d /home/ftpdir -s /bin/bash ftpuser 
+# 设置用户密码
+$ sudo passwd ftpuser 
+# 设置ftp目录用户权限
+$ sudo chown ftpuser:ftpuser /home/ftpdir
+$ sudo chmod 777 /home/ftpdir
+
+# 新建文件/etc/vsftpd.user_list，用于存放允许访问ftp的用户：
+$ sudo touch /etc/vsftpd.user_list 
+$ sudo vim /etc/vsftpd.user_list
+
+# 添加以下内容
+ftpuser
+
+# 新建文件/etc/vsftpd.chroot_list，设置可列出、切换目录的用户：
+$ sudo touch /etc/vsftpd.chroot_list 
+$ sudo vim /etc/vsftpd.chroot_list
+# 在/etc/vsftpd.chroot_list 设置可列出、切换目录的用户 
+ftpuser
+
+# 重启 vsftpd 服务
+sudo service vsftpd restart
